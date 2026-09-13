@@ -111,9 +111,9 @@ def form_create():
         title =  request.form['title']
         subtitle =  request.form['subtitle']
         text =  request.form['text']
-
+        email = session.get('user_email')
         # Tugas #4. Pastikan pembuatan card dilakukan atas nama pengguna
-        card = Card(title=title, subtitle=subtitle, text=text)
+        card = Card(title=title, subtitle=subtitle, text=text, user_email=email)
 
         db.session.add(card)
         db.session.commit()
